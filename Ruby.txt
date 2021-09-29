@@ -1,0 +1,57 @@
+--------sep 21 ---------------------
+
+=>Implementing custom zip  method hat accepts any no. of Arrays as arguments
+code:-
+
+%%
+def cust_zip(a,*arrays)
+    final =[]
+    a.each_with_index do |val, index|
+        temp =[] << a[index]
+        arrays.each do |val2|
+            temp << val2[index]
+        end
+        final << temp
+    end
+    final
+end
+p cust_zip([1,2,3],["a","b","c"],["A","B","C"])
+%%
+
+---------Sep 22------------------
+
+====>Question
+````````
+Given an array and an integer n, return the sum of the first n numbers in the array.
+
+Worked Example
+sum_first_n_nums([9, 8, 7, 6], 3) ➞ 24
+# The parameter n is specified as 3.
+# The first 3 numbers in the list are 9, 8 and 7.
+# The sum of these 3 numbers is 24 (9 + 8 + 7).
+# Return the answer.
+Examples
+slice_sum([1, 3, 2], 2) ➞ 4
+
+slice_sum([4, 2, 5, 7], 4) ➞ 18
+
+slice_sum([3, 6, 2], 0) ➞ 0
+Notes
+If n is larger than the length of the array, return the sum of the whole array.
+````````
+code:-
+
+%%
+def slice_sum(arr, n)
+	if n>0
+		sum = 0
+		arr.each_with_index do |val,index|
+			sum += (val.to_i)
+			break if index == n-1
+		end
+		return sum
+	else
+		return 0
+	end
+end
+%%
